@@ -1,0 +1,12 @@
+{
+  "name": "4.-node.js-modules",
+  "version": "1.0.0",
+  "description": "- **Definition:** A module is a file containing reusable code that can be imported into other files.\r - **Modular Programming:**\r   - Breaking code into small, manageable pieces (modules).\r   - Each module handles a specific functionality.\r   - Makes code organized, maintainable, and reusable.\r - **Example:**\r   - `hello.js` (main file)\r   - `maths.js` (contains math functions like add, subtract)",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
