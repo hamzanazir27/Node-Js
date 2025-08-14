@@ -1,0 +1,12 @@
+{
+  "name": "5.-file-handling",
+  "version": "1.0.0",
+  "description": "- **Purpose**: Perform operations like create, read, write, append, copy, delete files, and create/delete directories.\r - **Module Used**:\r   - `fs` (File System module)\r   - Built-in, no need for `./` path when importing:\r     ```jsx\r     const fs = require(\"fs\");\r     ```",
+  "main": "file_system.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node file_system.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
