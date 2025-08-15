@@ -328,6 +328,4 @@ server.listen(8000, () => {
 
 ---
 
-Agar tum chaho to main iska **Express.js version** bhi de sakta hoon jo zyada short aur clean hota hai.
 
-Kya tum chahte ho main Express wala version bana doon?
