@@ -1,12 +1,27 @@
-# Node.js Learning Journey
+## 6 — Nodemon — avoid manual restarts
 
-This repository contains my **Node.js learning notes** and **hands-on projects**.  
-Since I already have strong JavaScript knowledge, this focuses only on **Node.js concepts** from basics to advanced.
+- Install dev dependency and add script:
 
----
+```bash
+npm i -D nodemon
 
-type nul > README.md to create file
+```
 
-npm init for
+package.json:
 
-npm install express
+```json
+"scripts": {
+  "start": "node index.js",
+  "dev": "nodemon index.js"
+}
+
+```
+
+Run with:
+
+```bash
+npm run dev
+
+```
+
+Nodemon watches files and restarts server automatically on file changes.
