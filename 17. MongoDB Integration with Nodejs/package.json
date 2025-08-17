@@ -1,0 +1,20 @@
+{
+  "name": "17.-mongodb-integration-with-nodejs",
+  "version": "1.0.0",
+  "description": "This tutorial covers connecting a Notes application to MongoDB database using Mongoose, replacing file-based data storage with database operations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
