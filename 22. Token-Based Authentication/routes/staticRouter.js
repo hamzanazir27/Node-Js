@@ -1,0 +1,43 @@
+const express = require("express");
+const URL = require("../models/url");
+const router = express.Router();
+
+// Home page route
+router.get("/", async (req, res) => {
+  const userId = req?.user?._id;
+  if (!userId) return res.redirect("/login");
+  const allUrls = await URL.find({ createdBy: userId });
+  // const allUrls = await URL.find();
+  return res.render("home", {
+    urls: allUrls,
+  });
+});
+
+// Render SignUp
+router.get("/signup", async (req, res) => {
+  return res.render("signup");
+});
+
+//Render Login
+router.get("/login", async (req, res) => {
+  return res.render("login");
+});
+// Handle URL creation
+router.post("/url", async (req, res) => {
+  const { url } = req.body;
+
+  // Create short URL logic here
+  const shortUrl = await URL.create({
+    shortId: generateShortId(),
+    redirectURL: url,
+    visitHistory: [],
+  });
+
+  const allUrls = await URL.find({});
+  return res.render("home", {
+    id: shortUrl.shortId,
+    urls: allUrls,
+  });
+});
+
+module.exports = router;
