@@ -11,21 +11,21 @@ router.get("/", async (req, res) => {
 });
 
 // Handle URL creation
-router.post("/url", async (req, res) => {
-  const { url } = req.body;
+// router.post("/url", async (req, res) => {
+//   const { url } = req.body;
 
-  // Create short URL logic here
-  const shortUrl = await URL.create({
-    shortId: generateShortId(),
-    redirectURL: url,
-    visitHistory: [],
-  });
+//   // Create short URL logic here
+//   const shortUrl = await URL.create({
+//     shortId: generateShortId(),
+//     redirectURL: url,
+//     visitHistory: [],
+//   });
 
-  const allUrls = await URL.find({});
-  return res.render("home", {
-    id: shortUrl.shortId,
-    urls: allUrls,
-  });
-});
+//   const allUrls = await URL.find({});
+//   return res.render("home", {
+//     id: shortUrl.shortId,
+//     urls: allUrls,
+//   });
+// });
 
 module.exports = router;
