@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head") %>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomePage</title>
+  </head>
+  <body>
+    <%- include("./partials/navbar") %>
+    <div class="container mt-4">
+      <h1>Welcome to Bloggify</h1>
+      <!-- Blog content will go here -->
+
+      <% if (locals.user) { %>
+      <div class="container margin-top-3">
+        <a href="/blog/add-new" class="btn btn-primary">Add Blog</a>
+      </div>
+      <% } %>
+      <h3 class="mt-3">All Blogs</h3>
+      <div class="container mt-3">
+        <div class="row">
+          <% for(const blog of blogs) { %>
+          <div class="col-md-4 mb-3">
+            <!-- 3 cards per row -->
+            <div class="card h-100">
+              <img
+                src="<%= blog.coverImageURL %>"
+                class="card-img-top"
+                alt="Cover Image"
+              />
+              <div class="card-body">
+                <h5 class="card-title"><%= blog.title %></h5>
+                <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <%- include("./partials/script") %>
+  </body>
+</html>
