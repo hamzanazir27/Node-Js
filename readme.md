@@ -228,61 +228,6 @@ npm install
 node app.js
 ```
 
-## 🏗️ Major Projects Implemented
-
-### 1. **Complete Blog Application** _(Modules 27-30)_
-
-- **Status**: ✅ **DEPLOYED & COMPLETE**
-- **Features**:
-  - User signup/signin with Bootstrap UI
-  - JWT-based authentication & authorization
-  - Role-based access (Admin/User)
-  - CRUD operations for blog posts
-  - Server-side rendering with EJS
-  - Production deployment
-- **Technologies**: Node.js, Express.js, MongoDB, EJS, JWT, Bootstrap
-- **Timeline**: 4 days of intensive development
-
-### 2. **Users REST API** _(Module 12)_
-
-- **Status**: ✅ **COMPLETE**
-- **Features**:
-  - All HTTP methods implementation
-  - CRUD operations for user management
-  - Postman testing suite
-  - RESTful API principles
-- **Technologies**: Express.js, Node.js
-- **Testing**: Fully tested with Postman
-
-### 3. **URL Shortener Service** _(Module 19)_
-
-- **Status**: ✅ **COMPLETE**
-- **Features**:
-  - URL shortening algorithm
-  - Database storage with MongoDB
-  - MVC architecture implementation
-  - Click tracking functionality
-- **Technologies**: Node.js, Express.js, MongoDB, MVC Pattern
-
-### 4. **Discord Bot** _(Module 25)_
-
-- **Status**: ✅ **COMPLETE**
-- **Features**:
-  - Real-time Discord integration
-  - File handling capabilities
-  - Command processing
-  - Event-driven architecture
-- **Technologies**: Node.js, Discord.js, File System APIs
-
-### 5. **Real-time Chat with WebSockets** _(Module 31)_
-
-- **Status**: ✅ **COMPLETE**
-- **Features**:
-  - Socket.io implementation
-  - Real-time bidirectional communication
-  - Event handling
-  - Live messaging system
-- **Technologies**: Socket.io, Express.js, Node.js
 
 ## 🛠️ Technologies Mastered (Course Implementation)
 
@@ -385,3 +330,4 @@ This project is for educational purposes. Feel free to use the code examples for
 ### 🌟 Star this repository if you find it helpful!
 
 **Happy Learning! 🎉**
+
