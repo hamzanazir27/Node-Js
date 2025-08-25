@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head") %>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomePage</title>
+    <style>
+      .hero-section {
+        background: #667eea;
+        color: white;
+        padding: 4rem 0;
+        margin-bottom: 3rem;
+      }
+      .blog-card {
+        transition: all 0.3s ease;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        height: 100%; /* Ensures equal height cards */
+        display: flex;
+        flex-direction: column;
+      }
+      .blog-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+      .blog-card img {
+        height: 220px;
+        width: 100%;
+        object-fit: cover;
+        transition: all 0.3s ease;
+      }
+      .blog-card:hover img {
+        transform: scale(1.05);
+      }
+      .card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+      }
+      .stats-section {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 2rem 0;
+      }
+      .blog-title {
+        flex-grow: 1;
+        margin-bottom: 1rem;
+        min-height: auto;
+        line-height: 1.4;
+      }
+      .author-info {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .author-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #dee2e6;
+      }
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+      @media (max-width: 768px) {
+        .blog-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        .hero-section {
+          padding: 2rem 0;
+        }
+        .hero-section .btn {
+          display: block;
+          width: 100%;
+          margin-bottom: 0.5rem;
+        }
+      }
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .blog-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 1025px) {
+        .blog-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <%- include("./partials/navbar") %>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="container text-center">
+        <h1 class="display-3 fw-bold mb-4">Welcome to BlogNest</h1>
+        <p class="lead mb-4">
+          Discover amazing stories, share your thoughts, and connect with fellow
+          bloggers
+        </p>
+
+        <% if (locals.user) { %>
+        <div
+          class="d-flex flex-column flex-md-row justify-content-center gap-3"
+        >
+          <a href="/blog/add-new" class="btn btn-warning btn-lg px-4">
+            <i class="fas fa-plus-circle"></i> Create Your First Blog
+          </a>
+          <a href="#blogs" class="btn btn-outline-light btn-lg px-4">
+            <i class="fas fa-arrow-down"></i> Explore Blogs
+          </a>
+        </div>
+        <% } else { %>
+        <div
+          class="d-flex flex-column flex-md-row justify-content-center gap-3"
+        >
+          <a href="/user/signup" class="btn btn-warning btn-lg px-4">
+            <i class="fas fa-user-plus"></i> Join BlogNest
+          </a>
+          <a href="/user/signin" class="btn btn-outline-light btn-lg px-4">
+            <i class="fas fa-sign-in-alt"></i> Sign In
+          </a>
+        </div>
+        <% } %>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Stats Section -->
+      <div class="stats-section">
+        <div class="row text-center">
+          <div class="col-md-4">
+            <div class="p-3">
+              <i class="fas fa-blog fa-3x text-primary mb-3"></i>
+              <h3 class="fw-bold"><%= blogs.length %></h3>
+              <p class="text-muted">Total Blogs</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="p-3">
+              <i class="fas fa-users fa-3x text-success mb-3"></i>
+              <h3 class="fw-bold">500+</h3>
+              <p class="text-muted">Active Writers</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="p-3">
+              <i class="fas fa-eye fa-3x text-info mb-3"></i>
+              <h3 class="fw-bold">10K+</h3>
+              <p class="text-muted">Monthly Readers</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- All Blogs Section -->
+      <div id="blogs" class="mb-5">
+        <div
+          class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4"
+        >
+          <h2 class="fw-bold text-primary mb-3 mb-md-0">
+            <i class="fas fa-newspaper"></i> Latest Blogs
+          </h2>
+          <% if (locals.user) { %>
+          <a href="/blog/add-new" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Add New Blog
+          </a>
+          <% } %>
+        </div>
+
+        <% if (blogs.length > 0) { %>
+        <div class="blog-grid">
+          <% for(const blog of blogs) { %>
+          <div class="card blog-card">
+            <div class="position-relative overflow-hidden">
+              <img
+                src="<%= blog.coverImageURL %>"
+                class="card-img-top"
+                alt="Cover Image"
+              />
+              <div class="position-absolute top-0 end-0 p-2">
+                <span class="badge bg-primary rounded-pill">
+                  <i class="fas fa-eye"></i> New
+                </span>
+              </div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title fw-bold text-dark mb-3 blog-title">
+                <%= blog.title %>
+              </h5>
+              <div class="mt-auto">
+                <a href="/blog/<%= blog._id %>" class="btn btn-primary w-100">
+                  <i class="fas fa-book-open"></i> Read More
+                </a>
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </div>
+        <% } else { %>
+        <div class="text-center py-5">
+          <i class="fas fa-blog fa-5x text-muted mb-4"></i>
+          <h3 class="text-muted">No blogs available yet</h3>
+          <p class="text-muted">Be the first to create a blog post!</p>
+          <% if (locals.user) { %>
+          <a href="/blog/add-new" class="btn btn-primary btn-lg">
+            <i class="fas fa-plus-circle"></i> Create First Blog
+          </a>
+          <% } %>
+        </div>
+        <% } %>
+      </div>
+    </div>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <%- include("./partials/script") %> <%- include("./partials/footer") %>
+  </body>
+</html>

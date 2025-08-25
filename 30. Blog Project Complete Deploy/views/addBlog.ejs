@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include("./partials/head") %>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Blog</title>
+    <style>
+      .form-container {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 3rem;
+        margin: 2rem 0;
+      }
+      .form-header {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #2c3e50;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <%- include("./partials/navbar") %>
+
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="form-container">
+            <div class="form-header">
+              <h2 class="display-5 fw-bold">
+                <i class="fas fa-pen-fancy text-primary"></i> Create New Blog
+              </h2>
+              <p class="text-muted">Share your thoughts with the world</p>
+            </div>
+
+            <form action="/blog" method="post" enctype="multipart/form-data">
+              <div class="mb-4">
+                <label class="form-label fw-bold text-primary">
+                  <i class="fas fa-heading"></i> Title
+                </label>
+                <input
+                  type="text"
+                  name="title"
+                  class="form-control form-control-lg"
+                  placeholder="Enter your blog title..."
+                  required
+                />
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label fw-bold text-primary">
+                  <i class="fas fa-image"></i> Cover Image
+                </label>
+                <input
+                  type="file"
+                  name="coverImage"
+                  id="coverImage"
+                  class="form-control form-control-lg"
+                  accept="image/*"
+                />
+                <div class="form-text">
+                  Upload an eye-catching cover image for your blog
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label fw-bold text-primary">
+                  <i class="fas fa-align-left"></i> Content
+                </label>
+                <textarea
+                  name="body"
+                  class="form-control"
+                  rows="10"
+                  placeholder="Write your blog content here..."
+                  required
+                ></textarea>
+              </div>
+
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-lg">
+                  <i class="fas fa-rocket"></i> Publish Blog
+                </button>
+                <a href="/" class="btn btn-outline-secondary">
+                  <i class="fas fa-arrow-left"></i> Cancel
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <%- include("./partials/script") %> <%- include("./partials/footer") %> <%-
+    include("./partials/script") %>
+  </body>
+</html>

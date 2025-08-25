@@ -1,0 +1,65 @@
+<!-- Simple Footer -->
+<footer class="bg-dark text-light py-4 mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h5 class="fw-bold text-warning">
+          <i class="fas fa-blog"></i> BlogNest
+        </h5>
+        <p class="mb-2">Share your stories with the world</p>
+        <p class="text-muted mb-0">
+          &copy; 2024 BlogNest. All rights reserved.
+        </p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <div class="mb-3">
+          <h6 class="fw-bold">Quick Links</h6>
+          <div
+            class="d-flex flex-column flex-md-row justify-content-md-end gap-3"
+          >
+            <a href="/" class="text-light text-decoration-none">
+              <i class="fas fa-home"></i> Home
+            </a>
+            <% if(locals.user){ %>
+            <a href="/blog/add-new" class="text-light text-decoration-none">
+              <i class="fas fa-plus"></i> Add Blog
+            </a>
+            <% } else { %>
+            <a href="/user/signin" class="text-light text-decoration-none">
+              <i class="fas fa-sign-in-alt"></i> Sign In
+            </a>
+            <a href="/user/signup" class="text-light text-decoration-none">
+              <i class="fas fa-user-plus"></i> Sign Up
+            </a>
+            <% } %>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="#" class="text-light me-3">
+            <i class="fab fa-facebook fa-lg"></i>
+          </a>
+          <a href="#" class="text-light me-3">
+            <i class="fab fa-twitter fa-lg"></i>
+          </a>
+          <a href="#" class="text-light me-3">
+            <i class="fab fa-instagram fa-lg"></i>
+          </a>
+          <a href="#" class="text-light">
+            <i class="fab fa-linkedin fa-lg"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4">
+    <p class="text-center mb-1">
+      Made by
+      <a
+        href="https://www.linkedin.com/in/hamzanazir1/"
+        target="_blank"
+        class="text-light"
+        >Hamza Nazir</a
+      >
+    </p>
+  </div>
+</footer>
